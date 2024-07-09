@@ -9,7 +9,7 @@ Welcome to my personal portfolio website, showcasing my projects and skills as a
 - [Usage](#usage)
 - [Features](#features)
 - [License](#license)
-- [Contact](#contact)
+- [Author](#author)
 
 ## Description
 
@@ -30,3 +30,18 @@ This portfolio website is designed to highlight my work as a web developer. It i
 
 Visit the deployed website [here](ralphmportfolio.netlify.app)
 
+## Features
+* Responsive Design: Works on desktop, tablet, and mobile devices.
+* Animated Header: My name in the header is animated to simulate typing.
+* Portfolio Section: Displays projects with links to deployed applications and GitHub repositories.
+* Contact Form: Allows visitors to send messages (currently only client-side validation).
+* Resume Section: Downloadable resume and list of proficiencies.
+* Footer: Contains social media links with icons.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
+## Author
+
+Developed by [Ralph Molu](www.linkedin.com/in/ralph-molu)
