@@ -4,6 +4,7 @@ import exerciseBuddy from '../assets/exerciseBuddy.jpg';
 import workdayScheduler from '../assets/workdayScheduler.jpg';
 import weatherDashboard from '../assets/weatherDashboard.jpg';
 import employeeManager from '../assets/employeeManagerDemo.gif'
+import { Helmet } from 'react-helmet';
 
 const Portfolio = () => {
     const projects = [
@@ -41,24 +42,29 @@ const Portfolio = () => {
     ];
 
     return (
-        <section>
-            <h2>Portfolio</h2>
-            <CardGroup>
-                {projects.map((project, index) => (
-                    <Card key={index} className="project-card mb-3">
-                        <Card.Img variant="top" src={project.image} />
-                        <Card.Body className="project-card-body">
-                            <Card.Title className="project-card-title">{project.title}</Card.Title>
-                            <Card.Text className="project-card-text">{project.description}</Card.Text>
-                            <Card.Text className="project-card-text">
-                                <a href={project.deployedLink} target="_blank" rel="noopener noreferrer">Deployed Application</a><br />
-                                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                ))}
-            </CardGroup>
-        </section>
+        <>
+            <Helmet>
+                <title>My Projects - My Portfolio</title>
+            </Helmet>
+            <section>
+                <h2>Portfolio</h2>
+                <CardGroup>
+                    {projects.map((project, index) => (
+                        <Card key={index} className="project-card mb-3">
+                            <Card.Img variant="top" src={project.image} />
+                            <Card.Body className="project-card-body">
+                                <Card.Title className="project-card-title">{project.title}</Card.Title>
+                                <Card.Text className="project-card-text">{project.description}</Card.Text>
+                                <Card.Text className="project-card-text">
+                                    <a href={project.deployedLink} target="_blank" rel="noopener noreferrer">Deployed Application</a><br />
+                                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    ))}
+                </CardGroup>
+            </section>
+        </>
     );
 };
 

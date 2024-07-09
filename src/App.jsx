@@ -8,18 +8,22 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Portfolio from './components/Portfolio'
 import Resume from './components/Resume'
+import { Helmet } from 'react-helmet';
 
 function App() {
 
   return (
     <BrowserRouter>
+      <Helmet>
+        <title>My Portfolio</title>
+      </Helmet>
       <Header />
       <main>
         <Routes>
-          <Route  path='/' element={<AboutMe />} />
-          <Route  path='/portfolio' element={<Portfolio />} />
-          <Route  path='/contact' element={<Contact />} /> 
-          <Route  path='/resume' element={<Resume />} />
+          <Route path='/' element={<AboutMe />} />
+          <Route path='/portfolio' element={<Portfolio />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/resume' element={<Resume />} />
         </Routes>
       </main>
       <Footer />

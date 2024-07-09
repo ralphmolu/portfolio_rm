@@ -1,7 +1,11 @@
-
+import { Helmet } from 'react-helmet';
 
 const Resume = () => {
     return (
+        <>
+        <Helmet>
+        <title>Resume - My Portfolio</title>
+      </Helmet>
         <section>
             <h2>Resume</h2>
             <a href="../assets/RalphMolu.pdf" download>Download Resume</a>
@@ -61,6 +65,7 @@ const Resume = () => {
             </div>
 
         </section>
+        </>
     );
 };
 
