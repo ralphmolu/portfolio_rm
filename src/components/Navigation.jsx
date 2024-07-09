@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
@@ -6,7 +6,7 @@ const currentPage = useLocation().pathname;
 
     return (
         <nav>
-            <ul>
+            <ul className = "nav-list">
                 <li>
                     <Link to="/" className={currentPage === '/' ? 'active' : ' '}>About Me</Link>
                 </li>

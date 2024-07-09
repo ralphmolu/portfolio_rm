@@ -1,63 +1,68 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Contact = () => {
-    const [formData, setFromData] = useState({
-        name: 'What is your name?',
-        email: 'What is your email?',
-        message: 'Leave me a message here..'
-    });
-    const [errors, setErrors] = useState({});
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState({});
 
-    const handleChange = (e) => {
-        setFromData({ ...formData, [e.target.name]: e.target.value })
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormState({ ...formState, [name]: value });
+  };
 
-    // validate user input and ensure all fields are filled out
-    const validate = () => {
-        const errors = {};
-        if (!formData.name) errors.name = 'Name is required';
-        if (!formData.email) errors.email = 'Email is required';
-        const regexCheck = /\S+@\S+\.\S+/;
-        if (!regexCheck.test(formData.email)) errors.email = 'Email address is invalid';
-        if (!formData.message) errors.message = 'Message is required';
-        return errors;
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = {};
 
+    if (!formState.name) newErrors.name = 'Name is required';
+    if (!formState.email) newErrors.email = 'Email is required';
+    if (!formState.message) newErrors.message = 'Message is required';
+    if (formState.email && !/\S+@\S+\.\S+/.test(formState.email)) newErrors.email = 'Email is invalid';
 
-    //to be added later: logic to have an email sent to my email address
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const validationErrors = validate();
-        if (Object.keys(validationErrors).length === 0) {
-            setErrors(errors);
-            return;
-        }
-        alert('Form submitted');
-    };
+    setErrors(newErrors);
 
-    return (
-        <section>
-            <h2>Contact Me</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Name</label>
-                    <input type='text' name="name" value={formData.name} onChange={handleChange} />
-                    {errors.name && <span>{errors.name}</span>}
-                </div>
-                <div>
-                    <label>Email</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
-                    {errors.email && <span>{errors.email}</span>}
-                </div>
-                <div>
-                    <label>Message</label>
-                    <textarea name="message" value={formData.message} onChange={handleChange}></textarea>
-                    {errors.message && <span>{errors.message}</span>}
-                </div>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-    )
+    if (Object.keys(newErrors).length === 0) {
+      // Submit the form
+      console.log('Form submitted', formState);
+    }
+  };
+
+  return (
+    <section>
+      <h2>Contact Me</h2>
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={formState.name}
+          onChange={handleChange}
+        />
+        {errors.name && <span className="error">{errors.name}</span>}
+        
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={formState.email}
+          onChange={handleChange}
+        />
+        {errors.email && <span className="error">{errors.email}</span>}
+        
+        <label htmlFor="message">Message</label>
+        <textarea
+          name="message"
+          id="message"
+          value={formState.message}
+          onChange={handleChange}
+        />
+        {errors.message && <span className="error">{errors.message}</span>}
+        
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  );
 };
 
 export default Contact;

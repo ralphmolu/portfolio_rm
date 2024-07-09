@@ -1,8 +1,7 @@
-import React from 'react';
-import Project from './Project';
-import { Card, CardDeck } from 'react-bootstrap';
-import exerciseBuddy from '../assets/Exercise_Buddy.jpg';
-import workdayScheduler from '../assets/workday-scheduler.jpg';
+
+import { Card, CardGroup } from 'react-bootstrap';
+import exerciseBuddy from '../assets/ExerciseBuddy.jpg';
+import workdayScheduler from '../assets/workdayScheduler.jpg';
 import weatherDashboard from '../assets/weatherDashboard.jpg';
 import employeeManager from '../assets/employeeManagerDemo.gif'
 
@@ -44,20 +43,21 @@ const Portfolio = () => {
     return (
         <section>
             <h2>Portfolio</h2>
-            <CardDeck>
+            <CardGroup>
                 {projects.map((project, index) => (
-                    <Card key={index} className="mb-3">
+                    <Card key={index} className="project-card mb-3">
                         <Card.Img variant="top" src={project.image} />
-                        <Card.Body>
-                            <Card.Title>{project.title}</Card.Title>
-                            <Card.Text>
+                        <Card.Body className="project-card-body">
+                            <Card.Title className="project-card-title">{project.title}</Card.Title>
+                            <Card.Text className="project-card-text">{project.description}</Card.Text>
+                            <Card.Text className="project-card-text">
                                 <a href={project.deployedLink} target="_blank" rel="noopener noreferrer">Deployed Application</a><br />
                                 <a href={project.githubLink} target="_blank" rel="noopener noreferrer">GitHub Repository</a>
                             </Card.Text>
                         </Card.Body>
                     </Card>
                 ))}
-            </CardDeck>
+            </CardGroup>
         </section>
     );
 };
