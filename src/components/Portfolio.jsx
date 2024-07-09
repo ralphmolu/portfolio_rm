@@ -1,6 +1,6 @@
 
 import { Card, CardGroup } from 'react-bootstrap';
-import exerciseBuddy from '../assets/ExerciseBuddy.jpg';
+import exerciseBuddy from '../assets/exerciseBuddy.jpg';
 import workdayScheduler from '../assets/workdayScheduler.jpg';
 import weatherDashboard from '../assets/weatherDashboard.jpg';
 import employeeManager from '../assets/employeeManagerDemo.gif'
